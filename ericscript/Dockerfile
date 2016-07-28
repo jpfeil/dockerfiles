@@ -4,6 +4,9 @@ MAINTAINER Jacob Pfeil, jpfeil@ucsc.edu
 
 RUN apt-get update && apt-get install -y wget r-base build-essential zlib1g-dev git samtools
 
+RUN mkdir /opt/ericscript/
+COPY wrapper.sh /opt/ericscript/
+
 WORKDIR /home
 
 RUN mkdir /home/bin 
@@ -34,4 +37,4 @@ RUN wget http://downloads.sourceforge.net/project/ericscript/ericscript-0.5.5.ta
 RUN mkdir /data
 WORKDIR /data
 
-ENTRYPOINT /home/ericscript-0.5.5/ericscript.pl
+ENTRYPOINT ["sh", "/opt/ericscript/wrapper.sh"]
