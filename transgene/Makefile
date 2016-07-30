@@ -7,7 +7,7 @@ tag = 2.0--${git_commit}
 
 build:
 	docker build -t ${name}:${tag} .
-	docker tag -f ${name}:${tag} ${name}:latest
+	docker tag ${name}:${tag} ${name}:latest
 	touch ${build_tool}
 
 push: build
