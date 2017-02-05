@@ -12,7 +12,7 @@ WORKDIR /home
 RUN mkdir /home/bin 
 ENV PATH /home/bin:$PATH
 
-RUN pip install pysam 
+RUN pip install pysam swalign 
 
 RUN git clone https://github.com/jpfeil/Transgene.git; cd Transgene; \
     git checkout issues/1-add-fusion-support; ln -s /home/Transgene/transgene.py /home/bin/; \
