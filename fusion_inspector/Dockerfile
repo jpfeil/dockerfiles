@@ -4,12 +4,12 @@
 # Run with sudo docker run -v <IO_folder>:/data jpfeil/fusion-inspector:protect <parameters>
 
 # Use pimmuno
-FROM aarjunrao/samtools
+FROM ubuntu:14.04
 
 MAINTAINER Jacob Pfeil, jpfeil@ucsc.edu
 
 RUN apt-get update --fix-missing && \
-    apt-get install -y dpkg zlib1g-dev gzip perl libdb-dev build-essential wget make git
+    apt-get install -y dpkg zlib1g-dev gzip perl libdb-dev build-essential wget make git samtools
 
  RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list && \
      echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list && \
